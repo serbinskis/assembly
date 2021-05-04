@@ -9,7 +9,7 @@ if exist Image\Custom.bin del Image\Custom.bin
 cls
 
 :Start
-Data\png2bin.exe Image\Custom.png Image\Custom.bin
+Programs\png2bin.exe Image\Custom.png Image\Custom.bin
 Programs\compress.exe Image\Custom.bin Image\Custom.bin
 Programs\nasm -o disk.img Data\kernel.asm
 goto QEMU
