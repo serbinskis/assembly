@@ -4,18 +4,19 @@ color 0a
 
 :Check
 if exist disk.img goto QEMU
-if exist Build\frames.bin del Build\frames.bin /F /Q >NUL
-if exist Build\song.bin del Build\song.bin /F /Q >NUL
-if exist Build\special.bin del Build\special.bin /F /Q >NUL
-if exist Build\stage2-uncompressed.bin del Build\stage2-uncompressed.bin /F /Q >NUL
-if exist Build\stage2-compressed.bin del Build\stage2-compressed.bin /F /Q >NUL
+if exist Build\frames.bin del Build\frames.bin /F /Q >nul
+if exist Build\song.bin del Build\song.bin /F /Q >nul
+if exist Build\special.bin del Build\special.bin /F /Q >nul
+if exist Build\stage2-uncompressed.bin del Build\stage2-uncompressed.bin /F /Q >nul
+if exist Build\stage2-compressed.bin del Build\stage2-compressed.bin /F /Q >nul
+md Build >nul
 cls
 
 
 :Start
 Data\Image\png2bin.exe Data\Image\Special\01.png Build\special.bin
 Data\Song\midi2bin.exe Data\Song\midi2bin.mid Build\song.bin
-cd Data\Image\Frames >>NUL
+cd Data\Image\Frames
 if exist 11.png ..\png2bin.exe 00.png 01.png 02.png 03.png 04.png 05.png 06.png 07.png 08.png 09.png 10.png 11.png ..\..\..\Build\frames.bin & goto Next
 if exist 10.png ..\png2bin.exe 00.png 01.png 02.png 03.png 04.png 05.png 06.png 07.png 08.png 09.png 10.png ..\..\..\Build\frames.bin & goto Next
 if exist 09.png ..\png2bin.exe 00.png 01.png 02.png 03.png 04.png 05.png 06.png 07.png 08.png 09.png ..\..\..\Build\frames.bin & goto Next
@@ -32,11 +33,11 @@ if exist 00.png ..\png2bin.exe 00.png ..\..\..\Build\frames.bin & goto Next
 
 
 :Next
-cd ..\..\Source >NUL
+cd ..\..\Source
 ..\..\Programs\nasm.exe -f bin main.asm -o ..\..\Build\stage2-uncompressed.bin
-..\..\Programs\compress.exe ..\..\Build\stage2-uncompressed.bin ..\..\Build\stage2-compressed.bin >NUL
+..\..\Programs\compress.exe ..\..\Build\stage2-uncompressed.bin ..\..\Build\stage2-compressed.bin
 ..\..\Programs\nasm.exe -o ..\..\disk.img bootloader.asm
-cd ..\.. >NUL
+cd ..\..
 
 
 :QEMU
