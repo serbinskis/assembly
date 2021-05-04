@@ -1,5 +1,6 @@
 @echo off
 title NyanScreamerMBR
+md Build >nul
 color 0a
 
 :Check
