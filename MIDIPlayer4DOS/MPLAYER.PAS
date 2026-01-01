@@ -1,4 +1,4 @@
-program MPlayer4DOS_Created_By_WobbyChip;
+program MPlayer4DOS;
 
 uses MIDIDrv, crt, dos;
 
