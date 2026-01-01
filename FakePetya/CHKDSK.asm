@@ -4,7 +4,7 @@ org 0h
 
 start:                         ;Ok, dont change this stuff either..
     jmp short load_prog
-    ident db "WobbyChip"
+    ident db "Serbix"
 
 ;=====================================================================================================================
 
