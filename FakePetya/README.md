@@ -5,5 +5,5 @@ FakePetay MBR is a safe demonstration project written in assembly that mimics th
 ## 🎥 Showcase
 
 <p align="center">
-  <img src="https://i.imgur.com/Gr6Rvzk.gif" width="100%">
+  <video src="https://github.com/user-attachments/assets/db73570c-fc89-4bd1-9e4b-f70a972f6093" width="100%">
 </p>
